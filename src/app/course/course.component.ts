@@ -8,6 +8,7 @@ import { ArrayType } from "@angular/compiler";
   styleUrls: ["./course.component.css"]
 })
 export class CourseComponent implements OnInit {
+  isActive = true;
   title: string = "working hard...";
   authors;
   imageUrl =
@@ -17,6 +18,17 @@ export class CourseComponent implements OnInit {
   }
   constructor(service: EmailService) {
     this.authors = service.getAuthors();
+  }
+  onClick($event){
+    console.log($event);
+  }
+
+  onKeyUp(){
+    console.log("G button pressed.");
+  }
+
+  onkeydown(email){
+    console.log(email);
   }
 
   ngOnInit() {}
