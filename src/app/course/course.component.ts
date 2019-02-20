@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { EmailService } from "../email.service";
-import { ArrayType } from "@angular/compiler";
 
 @Component({
   selector: "course",
