@@ -6,23 +6,22 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./star.component.css"]
 })
 export class StarComponent implements OnInit {
-  @Input("title") title: string;
-  @Input() isFavorite: boolean;
-  className: string = this.isFavorite
-    ? "fas fa-star fa-3x"
-    : "far fa-star fa-3x";
+  @Input("isFavorite") isFavorite: boolean;
+  className: string;
 
-  constructor() {
-    console.log(this.isFavorite);
-  }
+  constructor() {}
 
-  ngOnInit(): void {}
-
-  onClick() {
+  ngOnInit(): void {
     this.className = this.isFavorite
       ? "fas fa-star fa-3x"
       : "far fa-star fa-3x";
+  }
+
+  onClick() {
     this.isFavorite = !this.isFavorite;
+    this.className = this.isFavorite
+      ? "fas fa-star fa-3x"
+      : "far fa-star fa-3x";
     console.log("isFavorite : ", this.isFavorite);
     console.log("className : ", this.className);
   }
