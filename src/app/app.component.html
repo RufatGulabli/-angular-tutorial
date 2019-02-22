@@ -1,4 +1,23 @@
 <!-- <h1>Rufat Gulabli</h1>
 <course></course>
-<br /> -->
-<star [isFavorite]="post.title"></star>
+<hr />
+<br />
+<star [is-Favorite]="post.isFavorite" (change)="onChange($event)"></star>
+<br />
+<hr /> -->
+<!-- <bootstrap-panel>
+  <div class="heading">
+    <h2>Heading</h2>
+  </div>
+  <div class="body">
+    <p class="lead">Body</p>
+  </div>
+  <ng-container class="title">{{ title }}</ng-container>
+</bootstrap-panel>
+<br />
+<hr /> -->
+<heart
+  [isFavorite]="post.isFavorite"
+  [checked]="post.count"
+  (stateChanged)="stateChanged($event)"
+></heart>

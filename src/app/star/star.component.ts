@@ -1,28 +1,20 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+
+export interface EventArgs {
+  value: boolean;
+}
 
 @Component({
   selector: "star",
   templateUrl: "./star.component.html",
   styleUrls: ["./star.component.css"]
 })
-export class StarComponent implements OnInit {
-  @Input("isFavorite") isFavorite: boolean;
-  className: string;
-
-  constructor() {}
-
-  ngOnInit(): void {
-    this.className = this.isFavorite
-      ? "fas fa-star fa-3x"
-      : "far fa-star fa-3x";
-  }
+export class StarComponent {
+  @Input("is-Favorite") isSelected: boolean;
+  @Output("change") click = new EventEmitter();
 
   onClick() {
-    this.isFavorite = !this.isFavorite;
-    this.className = this.isFavorite
-      ? "fas fa-star fa-3x"
-      : "far fa-star fa-3x";
-    console.log("isFavorite : ", this.isFavorite);
-    console.log("className : ", this.className);
+    this.isSelected = !this.isSelected;
+    this.click.emit({ value: this.isSelected });
   }
 }
