@@ -4,8 +4,8 @@
 <br />
 <star [is-Favorite]="post.isFavorite" (change)="onChange($event)"></star>
 <br />
-<hr /> -->
-<!-- <bootstrap-panel>
+<hr />
+<bootstrap-panel>
   <div class="heading">
     <h2>Heading</h2>
   </div>
@@ -15,9 +15,72 @@
   <ng-container class="title">{{ title }}</ng-container>
 </bootstrap-panel>
 <br />
-<hr /> -->
+<hr />
 <heart
   [isFavorite]="post.isFavorite"
   [checked]="post.count"
   (stateChanged)="stateChanged($event)"
 ></heart>
+<br />
+<hr />
+<div *ngIf="courses.length > 0; then show; else dontshow"></div>
+<ng-template #show>
+  <div>
+    <h1>Hello World</h1>
+  </div>
+</ng-template>
+<ng-template #dontshow>
+  <div>
+    <p class="lead">No any list items</p>
+  </div>
+</ng-template>
+
+ -->
+
+<!-- <div [hidden]="courses.length == 0">
+  <h1>Hello World</h1>
+</div>
+<div [hidden]="courses.length > 0">
+  <h2>No any data</h2>
+</div> -->
+
+<!-- <ul class="nav nav-pills shadow-none p-3 mb-5 bg-light rounded">
+  <li class="nav-item ">
+    <a
+      class="nav-link"
+      [class.active]="viewMode == 'map'"
+      (click)="viewMode = 'map'"
+      >Map View</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [class.active]="viewMode == 'list'"
+      (click)="viewMode = 'list'"
+      >List View</a
+    >
+  </li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div class="shadow-sm p-3 mb-5 bg-white rounded" *ngSwitchCase="'map'">
+    Map View Content here...
+  </div>
+  <div class="shadow-sm p-3 mb-5 bg-white rounded" *ngSwitchCase="'list'">
+    List View Content here...
+  </div>
+  <div class="shadow-sm p-3 mb-5 bg-white rounded" *ngSwitchDefault>
+    Other view content...
+  </div>
+</div> -->
+<button class="btn btn-primary" (click)="load()">Load</button>
+<ul>
+  <li class="p-1" *ngFor="let item of courses; trackBy: trackByID">
+    {{ item.name }}
+    <!-- <span *ngIf="isEven"><i class="far fa-calendar-check"></i></span> -->
+    <button class="btn btn-danger" (click)="onDelete(item)">Delete</button>
+  </li>
+</ul>
+
+<star [is-Favorite]="post.isFavorite" (change)="onChange($event)"></star>
+<span>{{ student.address?.city }}</span>

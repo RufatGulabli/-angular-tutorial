@@ -1,8 +1,13 @@
 <span
   ><i
     class="fa-star fa-3x"
-    [class.fas]="isSelected"
-    [class.far]="!isSelected"
+    [ngClass]="{
+      fas: isSelected,
+      far: !isSelected
+    }"
     (click)="onClick()"
-  ></i
-></span>
+  >
+    <!-- [class.fas]="isSelected" -->
+    <!-- [class.far]="!isSelected" -->
+  </i></span
+>
