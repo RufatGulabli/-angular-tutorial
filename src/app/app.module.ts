@@ -9,9 +9,10 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
 import { HeartComponent } from './heart/heart.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, StarComponent, BootstrapPanelComponent, HeartComponent, InputFormatDirective, ZippyComponent],
+  declarations: [AppComponent, CourseComponent, StarComponent, BootstrapPanelComponent, HeartComponent, InputFormatDirective, ZippyComponent, ContactFormComponent],
   imports: [BrowserModule],
   providers: [EmailService],
   bootstrap: [AppComponent]
