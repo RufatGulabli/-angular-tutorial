@@ -7,9 +7,11 @@ import { EmailService } from "./email.service";
 import { StarComponent } from './star/star.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { HeartComponent } from './heart/heart.component';
+import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, StarComponent, BootstrapPanelComponent, HeartComponent],
+  declarations: [AppComponent, CourseComponent, StarComponent, BootstrapPanelComponent, HeartComponent, InputFormatDirective, ZippyComponent],
   imports: [BrowserModule],
   providers: [EmailService],
   bootstrap: [AppComponent]

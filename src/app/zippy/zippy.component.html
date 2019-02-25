@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="accordion">
+        <div class="card rounded border-bottom">
+          <div class="card-header">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" (click)="onClick()">
+                {{ title }}
+              </button>
+              <span
+                ><i
+                  [ngClass]="{
+                    'fa-chevron-up': showHide,
+                    'fa-chevron-down': !showHide
+                  }"
+                  class="float-right fa-1x fas"
+                  (click)="onClick()"
+                ></i
+              ></span>
+            </h2>
+          </div>
+          <div [hidden]="!showHide">
+            <div class="card-body">
+              <ng-content></ng-content>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
