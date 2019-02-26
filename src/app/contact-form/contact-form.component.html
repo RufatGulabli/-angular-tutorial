@@ -5,23 +5,51 @@
         <div class="form-group">
           <label for="firstname" class="lead">Firstname</label>
           <input
+            required
+            minlength="3"
+            pattern="^[a-zA-Z]+"
             ngModel
-            #firstname="ngModel"
             name="firstname"
-            type="text"
+            #first="ngModel"
+            (change)="log(first)"
             id="firstname"
+            type="text"
             class="form-control"
-            (change)="log(firstname)"
           />
+          <div
+            class="alert alert-danger m-1"
+            *ngIf="first.touched && !first.valid"
+          >
+            <div *ngIf="first.errors.required">Firstname is required.</div>
+            <div *ngIf="first.errors.minlength">
+              Firstname should be at least
+              {{ first.errors.minlength.requiredLength }} symbols.
+            </div>
+            <div *ngIf="first.errors.pattern">
+              Firstname do not math to pattern.
+            </div>
+          </div>
         </div>
+
         <div class="form-group">
           <label class="lead" for="comment">Comment</label>
           <textarea
+            ngModel
+            #area="ngModel"
+            name="textarea"
             class="form-control"
             id="comment"
+            (change)="logger(area)"
             row="1"
             col="10"
+            required
           ></textarea>
+          <div
+            class="alert alert-warning m-1"
+            *ngIf="area.touched && !area.valid"
+          >
+            You forgot to add your comments...
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

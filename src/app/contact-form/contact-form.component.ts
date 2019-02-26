@@ -9,4 +9,7 @@ export class ContactFormComponent {
   log(val) {
     console.log(val);
   }
+  logger(val) {
+    console.log(val);
+  }
 }
