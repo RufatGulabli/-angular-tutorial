@@ -1,0 +1,9 @@
+.form-control.ng-touched.ng-invalid {
+  border: 1px solid red;
+  background-color: rgb(248, 245, 245);
+}
+
+input[type="checkbox"],
+label[for="checkbox"] {
+  cursor: pointer;
+}

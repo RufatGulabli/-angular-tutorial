@@ -11,6 +11,7 @@ import { HeartComponent } from "./heart/heart.component";
 import { InputFormatDirective } from "./input-format.directive";
 import { ZippyComponent } from "./zippy/zippy.component";
 import { ContactFormComponent } from "./contact-form/contact-form.component";
+import { EnrolmentFormComponent } from './enrolment-form/enrolment-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactFormComponent } from "./contact-form/contact-form.component";
     HeartComponent,
     InputFormatDirective,
     ZippyComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    EnrolmentFormComponent
   ],
   imports: [BrowserModule, FormsModule],
   providers: [EmailService],
