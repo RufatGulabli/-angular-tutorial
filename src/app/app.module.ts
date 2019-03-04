@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -13,7 +14,8 @@ import { ZippyComponent } from "./zippy/zippy.component";
 import { ContactFormComponent } from "./contact-form/contact-form.component";
 import { EnrolmentFormComponent } from "./enrolment-form/enrolment-form.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
-import { NewCourseComponent } from './new-course/new-course.component';
+import { NewCourseComponent } from "./new-course/new-course.component";
+import { PostsComponent } from "./posts/posts.component";
 
 @NgModule({
   declarations: [
@@ -27,9 +29,10 @@ import { NewCourseComponent } from './new-course/new-course.component';
     ContactFormComponent,
     EnrolmentFormComponent,
     SignUpComponent,
-    NewCourseComponent
+    NewCourseComponent,
+    PostsComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [EmailService],
   bootstrap: [AppComponent]
 })
