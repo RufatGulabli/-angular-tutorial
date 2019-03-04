@@ -1,8 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let post of posts">
+    <div class="col-md-7">
+      <input
+        type="text"
+        class="form-control"
+        #newTodo
+        (keyup.enter)="addTodo(newTodo)"
+      />
+      <ul class="list-group m-2">
+        <li
+          class="list-group-item shadow mb-1 bg-white rounded"
+          *ngFor="let post of posts"
+        >
           {{ post.title }}
         </li>
       </ul>
