@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      <p class="text-danger lead">Wrong Http Url</p>
+    </div>
+    <div *ngIf="!errorMessage" class="col-md-7">
       <input
         type="text"
         class="form-control"
@@ -19,6 +22,12 @@
           >
             {{ post.title }}
             <div class="d-flex align-items-center">
+              <button
+                class="btn btn-info btn-sm m-1"
+                (click)="updatePost(post, newTodo)"
+              >
+                Update
+              </button>
               <button class="btn btn-danger btn-sm" (click)="onDelete(post)">
                 Delete
               </button>

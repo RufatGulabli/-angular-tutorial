@@ -16,6 +16,7 @@ import { EnrolmentFormComponent } from "./enrolment-form/enrolment-form.componen
 import { SignUpComponent } from "./sign-up/sign-up.component";
 import { NewCourseComponent } from "./new-course/new-course.component";
 import { PostsComponent } from "./posts/posts.component";
+import { PostService } from "./services/post.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { PostsComponent } from "./posts/posts.component";
     PostsComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [EmailService],
+  providers: [EmailService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
