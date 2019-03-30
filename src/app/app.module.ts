@@ -1,8 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
+import { NgModule, ErrorHandler } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { GlobalErrorHandler } from "./Error/globalErrorHandler";
 import { AppComponent } from "./app.component";
 import { CourseComponent } from "./course/course.component";
 import { EmailService } from "./email.service";
@@ -34,7 +34,12 @@ import { PostService } from "./services/post.service";
     PostsComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [EmailService, PostService],
+
+  providers: [
+    EmailService,
+    PostService,
+    { provide: ErrorHandler, useClass: GlobalErrorHandler }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

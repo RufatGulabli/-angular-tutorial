@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div *ngIf="errorMessage" class="alert alert-danger">
-      <p class="text-danger lead">Wrong Http Url</p>
+      <p class="text-danger lead">{{ errorMessage.message }}</p>
     </div>
     <div *ngIf="!errorMessage" class="col-md-7">
       <input
