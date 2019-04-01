@@ -1,3 +1,5 @@
+import { GlobalErrorHandler } from "./globalErrorHandler";
+
 export class AppError {
   private _status: string;
   private _message: string;

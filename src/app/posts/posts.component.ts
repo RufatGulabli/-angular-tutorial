@@ -44,7 +44,6 @@ export class PostsComponent implements OnInit {
         if (error instanceof BadInput) {
           this.errorMessage = error;
         } else {
-          alert("Hello");
           this.posts.splice(0, 1);
           throw error;
         }
@@ -56,6 +55,7 @@ export class PostsComponent implements OnInit {
     let index = this.posts.indexOf(post);
     this.posts.splice(index, 1);
     this.service.delete(post.id).subscribe(null, (error: AppError) => {
+      this.posts.splice(index, 0, post);
       if (error instanceof NotFoundError) {
         alert("This post has already been deleted");
       } else {

@@ -21,16 +21,15 @@ export class DataService {
   }
 
   create(post: any): Observable<any> {
-    return throwError(new GlobalErrorHandler());
-    // return this.http
-    //   .post<any>(this.url, JSON.stringify(post))
-    //   .pipe(catchError(this.errorHandler));
+    // return throwError(new GlobalErrorHandler());
+    return this.http
+      .post<any>(this.url, JSON.stringify(post))
+      .pipe(catchError(this.errorHandler));
   }
 
   delete(id: any) {
-    return throwError(new AppError());
     return this.http
-      .delete(this.url.concat("/" + id))
+      .delete(this.url.concat("asda/" + id))
       .pipe(catchError(this.errorHandler));
   }
 
