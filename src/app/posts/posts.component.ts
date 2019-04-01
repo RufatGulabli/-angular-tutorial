@@ -33,16 +33,19 @@ export class PostsComponent implements OnInit {
   addTodo(newTodo: HTMLInputElement) {
     let post: Todo = new Todo();
     post.title = newTodo.value;
+    this.posts.splice(0, 0, post);
+
     newTodo.value = "";
     this.service.create(post).subscribe(
       response => {
         post.id = response.id;
-        this.posts.splice(0, 0, post);
       },
       (error: AppError) => {
         if (error instanceof BadInput) {
           this.errorMessage = error;
         } else {
+          alert("Hello");
+          this.posts.splice(0, 1);
           throw error;
         }
       }
@@ -50,19 +53,15 @@ export class PostsComponent implements OnInit {
   }
 
   onDelete(post: Todo) {
-    this.service.delete(post.id).subscribe(
-      response => {
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-      },
-      (error: AppError) => {
-        if (error instanceof NotFoundError) {
-          alert("This post has already been deleted");
-        } else {
-          throw error;
-        }
+    let index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+    this.service.delete(post.id).subscribe(null, (error: AppError) => {
+      if (error instanceof NotFoundError) {
+        alert("This post has already been deleted");
+      } else {
+        throw error;
       }
-    );
+    });
   }
 
   updatePost(post: Todo, newTodo: HTMLInputElement) {
